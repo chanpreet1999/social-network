@@ -1,0 +1,766 @@
+openapi: 3.0.3
+info:
+  title: Social network Django Assignment
+  description: Social Media Application basic apis using Django restframework.
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: http://127.0.0.1
+paths:
+  /api/login/:
+    post:
+      tags:
+        - Sign-in or Signup
+      summary: Login
+      description: Login
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: friend1@test.com
+                password:
+                  type: string
+                  example: test
+            example:
+              email: friend1@test.com
+              password: test
+      responses:
+        '200':
+          description: Login
+          headers:
+            Allow:
+              schema:
+                type: string
+                example: POST, OPTIONS
+            Content-Length:
+              schema:
+                type: string
+                example: '112'
+            Cross-Origin-Opener-Policy:
+              schema:
+                type: string
+                example: same-origin
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 Jul 2024 10:19:39 GMT
+            Referrer-Policy:
+              schema:
+                type: string
+                example: same-origin
+            Server:
+              schema:
+                type: string
+                example: WSGIServer/0.2 CPython/3.12.1
+            Vary:
+              schema:
+                type: string
+                example: Accept, Cookie
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    example: 427877166209cc688bda3798c2edfce51417613e
+                  user:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: friend1@test.com
+                      id:
+                        type: number
+                        example: 8
+                      name:
+                        type: string
+                        example: friend1
+              examples:
+                Login:
+                  value:
+                    token: 427877166209cc688bda3798c2edfce51417613e
+                    user:
+                      email: friend1@test.com
+                      id: 8
+                      name: friend1
+  /api/signup/:
+    post:
+      tags:
+        - Sign-in or Signup
+      summary: Signup
+      description: >-
+        At the time of signing up, a token will be generated for each user,
+        which needs to be sent in all API headers(except Login) to authenticate
+        the user
+      operationId: signup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: friend6@test.com
+                name:
+                  type: string
+                  example: friend6
+                password:
+                  type: string
+                  example: test
+            example:
+              email: friend6@test.com
+              name: friend6
+              password: test
+      responses:
+        '201':
+          description: Signup
+          headers:
+            Allow:
+              schema:
+                type: string
+                example: POST, OPTIONS
+            Content-Length:
+              schema:
+                type: string
+                example: '113'
+            Cross-Origin-Opener-Policy:
+              schema:
+                type: string
+                example: same-origin
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 Jul 2024 14:25:08 GMT
+            Referrer-Policy:
+              schema:
+                type: string
+                example: same-origin
+            Server:
+              schema:
+                type: string
+                example: WSGIServer/0.2 CPython/3.12.1
+            Vary:
+              schema:
+                type: string
+                example: Accept, Cookie
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    example: 8b7c36ae731bfab21348de3a015689b83c2cb4d0
+                  user:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: friend6@test.com
+                      id:
+                        type: number
+                        example: 13
+                      name:
+                        type: string
+                        example: friend6
+              examples:
+                Signup:
+                  value:
+                    token: 8b7c36ae731bfab21348de3a015689b83c2cb4d0
+                    user:
+                      email: friend6@test.com
+                      id: 13
+                      name: friend6
+  /api/friend-request/:
+    put:
+      tags:
+        - Friend Request
+      summary: Update Friend Request 2
+      description: Update Friend Request 2
+      operationId: updateFriendRequest2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                friend_request_status:
+                  type: string
+                  example: rejected
+                request_id:
+                  type: number
+                  example: 6
+            example:
+              friend_request_status: rejected
+              request_id: 6
+      responses:
+        '200':
+          description: Update Friend Request 2
+          headers:
+            Allow:
+              schema:
+                type: string
+                example: POST, PUT, OPTIONS
+            Content-Length:
+              schema:
+                type: string
+                example: '200'
+            Cross-Origin-Opener-Policy:
+              schema:
+                type: string
+                example: same-origin
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 Jul 2024 14:58:57 GMT
+            Referrer-Policy:
+              schema:
+                type: string
+                example: same-origin
+            Server:
+              schema:
+                type: string
+                example: WSGIServer/0.2 CPython/3.12.1
+            Vary:
+              schema:
+                type: string
+                example: Accept
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  from_user:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: friend4@test.com
+                      id:
+                        type: number
+                        example: 11
+                      name:
+                        type: string
+                        example: friend4
+                  id:
+                    type: number
+                    example: 6
+                  status:
+                    type: string
+                    example: rejected
+                  timestamp:
+                    type: string
+                    example: '2024-07-06T14:26:45.009651Z'
+                  to_user:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: friend6@test.com
+                      id:
+                        type: number
+                        example: 13
+                      name:
+                        type: string
+                        example: friend6
+              examples:
+                Update Friend Request 2:
+                  value:
+                    from_user:
+                      email: friend4@test.com
+                      id: 11
+                      name: friend4
+                    id: 6
+                    status: rejected
+                    timestamp: '2024-07-06T14:26:45.009651Z'
+                    to_user:
+                      email: friend6@test.com
+                      id: 13
+                      name: friend6
+    post:
+      tags:
+        - Friend Request
+      summary: send friend request
+      description: send friend request
+      operationId: sendFriendRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                to_user_id:
+                  type: number
+                  example: 13
+            example:
+              to_user_id: 13
+      responses:
+        '200':
+          description: send friend request
+          headers:
+            Allow:
+              schema:
+                type: string
+                example: POST, PUT, OPTIONS
+            Content-Length:
+              schema:
+                type: string
+                example: '199'
+            Cross-Origin-Opener-Policy:
+              schema:
+                type: string
+                example: same-origin
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 Jul 2024 15:04:40 GMT
+            Referrer-Policy:
+              schema:
+                type: string
+                example: same-origin
+            Server:
+              schema:
+                type: string
+                example: WSGIServer/0.2 CPython/3.12.1
+            Vary:
+              schema:
+                type: string
+                example: Accept
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  from_user:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: friend4@test.com
+                      id:
+                        type: number
+                        example: 11
+                      name:
+                        type: string
+                        example: friend4
+                  id:
+                    type: number
+                    example: 6
+                  status:
+                    type: string
+                    example: pending
+                  timestamp:
+                    type: string
+                    example: '2024-07-06T14:26:45.009651Z'
+                  to_user:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: friend6@test.com
+                      id:
+                        type: number
+                        example: 13
+                      name:
+                        type: string
+                        example: friend6
+              examples:
+                send friend request:
+                  value:
+                    from_user:
+                      email: friend4@test.com
+                      id: 11
+                      name: friend4
+                    id: 6
+                    status: pending
+                    timestamp: '2024-07-06T14:26:45.009651Z'
+                    to_user:
+                      email: friend6@test.com
+                      id: 13
+                      name: friend6
+  /api/pending-requests/:
+    get:
+      tags:
+        - Friend Request
+      summary: pending friend request
+      description: pending friend request
+      operationId: pendingFriendRequest
+      responses:
+        '200':
+          description: pending friend request
+          headers:
+            Allow:
+              schema:
+                type: string
+                example: GET, HEAD, OPTIONS
+            Content-Length:
+              schema:
+                type: string
+                example: '251'
+            Cross-Origin-Opener-Policy:
+              schema:
+                type: string
+                example: same-origin
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 Jul 2024 14:57:59 GMT
+            Referrer-Policy:
+              schema:
+                type: string
+                example: same-origin
+            Server:
+              schema:
+                type: string
+                example: WSGIServer/0.2 CPython/3.12.1
+            Vary:
+              schema:
+                type: string
+                example: Accept
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: number
+                    example: 1
+                  next:
+                    nullable: true
+                    example: null
+                  previous:
+                    nullable: true
+                    example: null
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        from_user:
+                          type: object
+                          properties:
+                            email:
+                              type: string
+                              example: friend4@test.com
+                            id:
+                              type: number
+                              example: 11
+                            name:
+                              type: string
+                              example: friend4
+                        id:
+                          type: number
+                          example: 6
+                        status:
+                          type: string
+                          example: pending
+                        timestamp:
+                          type: string
+                          example: '2024-07-06T14:26:45.009651Z'
+                        to_user:
+                          type: object
+                          properties:
+                            email:
+                              type: string
+                              example: friend6@test.com
+                            id:
+                              type: number
+                              example: 13
+                            name:
+                              type: string
+                              example: friend6
+                    example:
+                      - from_user:
+                          email: friend4@test.com
+                          id: 11
+                          name: friend4
+                        id: 6
+                        status: pending
+                        timestamp: '2024-07-06T14:26:45.009651Z'
+                        to_user:
+                          email: friend6@test.com
+                          id: 13
+                          name: friend6
+              examples:
+                pending friend request:
+                  value:
+                    count: 1
+                    next: null
+                    previous: null
+                    results:
+                      - from_user:
+                          email: friend4@test.com
+                          id: 11
+                          name: friend4
+                        id: 6
+                        status: pending
+                        timestamp: '2024-07-06T14:26:45.009651Z'
+                        to_user:
+                          email: friend6@test.com
+                          id: 13
+                          name: friend6
+  /api/search/:
+    get:
+      summary: search user api
+      description: search user api
+      operationId: searchUserApi
+      parameters:
+        - name: keyword
+          in: query
+          schema:
+            type: string
+            example: friend
+        - name: page
+          in: query
+          schema:
+            type: string
+            example: '1'
+      responses:
+        '200':
+          description: search user api
+          headers:
+            Allow:
+              schema:
+                type: string
+                example: GET, HEAD, OPTIONS
+            Content-Length:
+              schema:
+                type: string
+                example: '373'
+            Cross-Origin-Opener-Policy:
+              schema:
+                type: string
+                example: same-origin
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 Jul 2024 16:36:43 GMT
+            Referrer-Policy:
+              schema:
+                type: string
+                example: same-origin
+            Server:
+              schema:
+                type: string
+                example: WSGIServer/0.2 CPython/3.12.1
+            Vary:
+              schema:
+                type: string
+                example: Accept
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: number
+                    example: 6
+                  next:
+                    nullable: true
+                    example: null
+                  previous:
+                    nullable: true
+                    example: null
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        email:
+                          type: string
+                          example: friend1@test.com
+                        id:
+                          type: number
+                          example: 8
+                        name:
+                          type: string
+                          example: friend1
+                    example:
+                      - email: friend1@test.com
+                        id: 8
+                        name: friend1
+                      - email: friend2@test.com
+                        id: 9
+                        name: friend2
+                      - email: friend3@test.com
+                        id: 10
+                        name: friend3
+                      - email: friend4@test.com
+                        id: 11
+                        name: friend4
+                      - email: friend5@test.com
+                        id: 12
+                        name: friend5
+                      - email: friend6@test.com
+                        id: 13
+                        name: friend6
+              examples:
+                search user api:
+                  value:
+                    count: 6
+                    next: null
+                    previous: null
+                    results:
+                      - email: friend1@test.com
+                        id: 8
+                        name: friend1
+                      - email: friend2@test.com
+                        id: 9
+                        name: friend2
+                      - email: friend3@test.com
+                        id: 10
+                        name: friend3
+                      - email: friend4@test.com
+                        id: 11
+                        name: friend4
+                      - email: friend5@test.com
+                        id: 12
+                        name: friend5
+                      - email: friend6@test.com
+                        id: 13
+                        name: friend6
+  /api/friends/:
+    get:
+      summary: list friends
+      description: list friends
+      operationId: listFriends
+      responses:
+        '200':
+          description: list friends
+          headers:
+            Allow:
+              schema:
+                type: string
+                example: GET, HEAD, OPTIONS
+            Content-Length:
+              schema:
+                type: string
+                example: '105'
+            Cross-Origin-Opener-Policy:
+              schema:
+                type: string
+                example: same-origin
+            Date:
+              schema:
+                type: string
+                example: Sat, 06 Jul 2024 14:58:48 GMT
+            Referrer-Policy:
+              schema:
+                type: string
+                example: same-origin
+            Server:
+              schema:
+                type: string
+                example: WSGIServer/0.2 CPython/3.12.1
+            Vary:
+              schema:
+                type: string
+                example: Accept
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: number
+                    example: 1
+                  next:
+                    nullable: true
+                    example: null
+                  previous:
+                    nullable: true
+                    example: null
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        email:
+                          type: string
+                          example: friend6@test.com
+                        id:
+                          type: number
+                          example: 13
+                        name:
+                          type: string
+                          example: friend6
+                    example:
+                      - email: friend6@test.com
+                        id: 13
+                        name: friend6
+              examples:
+                list friends:
+                  value:
+                    count: 1
+                    next: null
+                    previous: null
+                    results:
+                      - email: friend6@test.com
+                        id: 13
+                        name: friend6
+tags:
+  - name: Sign-in or Signup
+  - name: Friend Request
