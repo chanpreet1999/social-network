@@ -19,18 +19,24 @@ class UserSignupView(generics.CreateAPIView):
     permission_classes = [permissions.AllowAny]
 
     def create(self, request, *args, **kwargs):
-        email = request.data.get('email').lower()
-        password = request.data.get('password')
-        name = request.data.get('name')
+        email = request.data.get('email', '').lower()
+        request.data['email'] = email  
+        
+        serializer = self.get_serializer(data=request.data)
+        
+        # Validate the data
+        serializer.is_valid(raise_exception=True)
 
-        if not email or not password or not name:
-            return Response({'error': 'Email, password, and name are required.'}, status=status.HTTP_400_BAD_REQUEST)
-
+        # Check for existing user with the same email
         if User.objects.filter(email=email).exists():
-            return Response({'error': 'Email ID already exists, please try logging in.'}, status=status.HTTP_200_OK )
+            return Response({'error': 'Email ID already exists, please try logging in.'}, status=status.HTTP_200_OK)
+        
+        validated_data = serializer.validated_data
+        password = validated_data.pop('password')
+        name = validated_data.pop('name')
 
         user = User.objects.create_user(email=email, password=password, name=name)
-        print(f"User created with email: {user.email} and password {user.password}")  # Debug statement
+        print(f"User created with email: {user.email}")  # Debug statement
         
         token, created = Token.objects.get_or_create(user=user)
         return Response({'token': token.key, 'user': UserSerializer(user).data}, status=status.HTTP_201_CREATED)
@@ -42,7 +48,7 @@ class UserLoginView(APIView):
     def post(self, request, *args, **kwargs):
         email = request.data.get('email').lower()
         password = request.data.get('password')
-        print(f"Attempting to authenticate user with email: {email} and password: {password}")  # Debug statement
+        print(f"Attempting to authenticate user with email: {email}")  # Debug statement
         
         user = authenticate(request, username=email, password=password)
         if user:
