@@ -14,6 +14,8 @@ This is a Django-based social network application with functionalities for user 
 - List Friends and Pending Friend Requests
 
 **Note**: The friendship between users is a 2 way friendship like FaceBook social media platform
+
+
 **Note**: As listed [here](https://drive.google.com/file/d/1zjNqjpcvJG843RnJk9Y_CqPLb5tVBuL1/view) a user can not send more than 3 friend requests within a minute.
 
 ## Prerequisites
@@ -32,7 +34,7 @@ This is a Django-based social network application with functionalities for user 
 
 ```sh
 
-git clone https://github.com/yourusername/social_network.git
+git clone https://github.com/chanpreet1999/social-network.git
 
 cd social_network
 
