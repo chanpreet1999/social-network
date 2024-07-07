@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "28f5e2ce-f110-4989-83ce-d1104eab6faa",
 		"name": "Social network Django Assignment",
+		"description": "Social Media Application basic apis using Django restframework.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "8440841"
 	},
@@ -48,7 +49,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"email\": \"friend1@test.com\",\r\n    \"password\": \"test\"\r\n}\t",
+									"raw": "{\r\n    \"email\": \"friend2@test.com\",\r\n    \"password\": \"test\"\r\n}\t",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -78,120 +79,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Sat, 06 Jul 2024 10:19:39 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.12.1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept, Cookie"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "112"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"token\": \"427877166209cc688bda3798c2edfce51417613e\",\n    \"user\": {\n        \"id\": 8,\n        \"email\": \"friend1@test.com\",\n        \"name\": \"friend1\"\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Signup",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"friend6@test.com\",\r\n    \"password\": \"test\",\r\n    \"name\": \"friend6\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/signup/",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"signup",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Signup",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"email\": \"friend6@test.com\",\r\n    \"password\": \"test\",\r\n    \"name\": \"friend6\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://127.0.0.1:8000/api/signup/",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"signup",
-										""
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Sat, 06 Jul 2024 14:25:08 GMT"
+									"value": "Sun, 07 Jul 2024 09:22:58 GMT"
 								},
 								{
 									"key": "Server",
@@ -231,7 +119,121 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"token\": \"8b7c36ae731bfab21348de3a015689b83c2cb4d0\",\n    \"user\": {\n        \"id\": 13,\n        \"email\": \"friend6@test.com\",\n        \"name\": \"friend6\"\n    }\n}"
+							"body": "{\n    \"token\": \"afb1ffd9c017c8fd143352e4ab58ec159d11ab7b\",\n    \"user\": {\n        \"id\": 16,\n        \"email\": \"friend1@test.com\",\n        \"name\": \"friend1\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"friend1@test.com\",\r\n    \"password\": \"test\",\r\n    \"name\": \"friend1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/signup/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"signup",
+								""
+							]
+						},
+						"description": "At the time of signing up, a token will be generated for each user, which needs to be sent in all API headers(except Login) to authenticate the user"
+					},
+					"response": [
+						{
+							"name": "Signup",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"friend1@test.com\",\r\n    \"password\": \"test\",\r\n    \"name\": \"friend1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/signup/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"signup",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 07 Jul 2024 09:22:36 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "113"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"afb1ffd9c017c8fd143352e4ab58ec159d11ab7b\",\n    \"user\": {\n        \"id\": 16,\n        \"email\": \"friend1@test.com\",\n        \"name\": \"friend1\"\n    }\n}"
 						}
 					]
 				}
@@ -251,12 +253,12 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Token 6ac2dd2120d4bccd4e9988fda45d4b54bed7ce07"
+								"value": "Token 9d17bfd242f2c175af16fd2e7a433efe8593e93b"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"to_user_id\": 13\r\n}",
+							"raw": "{\r\n    \"to_user_id\": 17\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -292,12 +294,12 @@
 									},
 									{
 										"key": "Authorization",
-										"value": "Token 6ac2dd2120d4bccd4e9988fda45d4b54bed7ce07"
+										"value": "Token afb1ffd9c017c8fd143352e4ab58ec159d11ab7b"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"to_user_id\": 13\r\n}",
+									"raw": "{\r\n    \"to_user_id\": 17\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -321,13 +323,13 @@
 									]
 								}
 							},
-							"status": "OK",
-							"code": 200,
+							"status": "Created",
+							"code": 201,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
 									"key": "Date",
-									"value": "Sat, 06 Jul 2024 15:04:40 GMT"
+									"value": "Sun, 07 Jul 2024 09:25:19 GMT"
 								},
 								{
 									"key": "Server",
@@ -351,7 +353,7 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "199"
+									"value": "200"
 								},
 								{
 									"key": "X-Content-Type-Options",
@@ -367,7 +369,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 6,\n    \"from_user\": {\n        \"id\": 11,\n        \"email\": \"friend4@test.com\",\n        \"name\": \"friend4\"\n    },\n    \"to_user\": {\n        \"id\": 13,\n        \"email\": \"friend6@test.com\",\n        \"name\": \"friend6\"\n    },\n    \"status\": \"pending\",\n    \"timestamp\": \"2024-07-06T14:26:45.009651Z\"\n}"
+							"body": "{\n    \"id\": 11,\n    \"from_user\": {\n        \"id\": 16,\n        \"email\": \"friend1@test.com\",\n        \"name\": \"friend1\"\n    },\n    \"to_user\": {\n        \"id\": 17,\n        \"email\": \"friend2@test.com\",\n        \"name\": \"friend2\"\n    },\n    \"status\": \"pending\",\n    \"timestamp\": \"2024-07-07T09:25:19.927937Z\"\n}"
 						}
 					]
 				},
@@ -423,12 +425,12 @@
 									},
 									{
 										"key": "Authorization",
-										"value": "Token 8b7c36ae731bfab21348de3a015689b83c2cb4d0"
+										"value": "Token 9d17bfd242f2c175af16fd2e7a433efe8593e93b"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{      \r\n    \"request_id\": 6,\r\n    \"friend_request_status\": \"rejected\"\r\n}",
+									"raw": "{      \r\n    \"request_id\": 11,\r\n    \"friend_request_status\": \"accepted\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -458,7 +460,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Sat, 06 Jul 2024 14:58:57 GMT"
+									"value": "Sun, 07 Jul 2024 09:26:30 GMT"
 								},
 								{
 									"key": "Server",
@@ -482,7 +484,7 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "200"
+									"value": "201"
 								},
 								{
 									"key": "X-Content-Type-Options",
@@ -498,7 +500,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 6,\n    \"from_user\": {\n        \"id\": 11,\n        \"email\": \"friend4@test.com\",\n        \"name\": \"friend4\"\n    },\n    \"to_user\": {\n        \"id\": 13,\n        \"email\": \"friend6@test.com\",\n        \"name\": \"friend6\"\n    },\n    \"status\": \"rejected\",\n    \"timestamp\": \"2024-07-06T14:26:45.009651Z\"\n}"
+							"body": "{\n    \"id\": 11,\n    \"from_user\": {\n        \"id\": 16,\n        \"email\": \"friend1@test.com\",\n        \"name\": \"friend1\"\n    },\n    \"to_user\": {\n        \"id\": 17,\n        \"email\": \"friend2@test.com\",\n        \"name\": \"friend2\"\n    },\n    \"status\": \"accepted\",\n    \"timestamp\": \"2024-07-07T09:25:19.927937Z\"\n}"
 						}
 					]
 				},
@@ -545,7 +547,7 @@
 									},
 									{
 										"key": "Authorization",
-										"value": "Token 8b7c36ae731bfab21348de3a015689b83c2cb4d0"
+										"value": "Token 9d17bfd242f2c175af16fd2e7a433efe8593e93b"
 									}
 								],
 								"url": {
@@ -571,7 +573,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Sat, 06 Jul 2024 14:57:59 GMT"
+									"value": "Sun, 07 Jul 2024 09:28:19 GMT"
 								},
 								{
 									"key": "Server",
@@ -595,7 +597,7 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "251"
+									"value": "252"
 								},
 								{
 									"key": "X-Content-Type-Options",
@@ -611,7 +613,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 6,\n            \"from_user\": {\n                \"id\": 11,\n                \"email\": \"friend4@test.com\",\n                \"name\": \"friend4\"\n            },\n            \"to_user\": {\n                \"id\": 13,\n                \"email\": \"friend6@test.com\",\n                \"name\": \"friend6\"\n            },\n            \"status\": \"pending\",\n            \"timestamp\": \"2024-07-06T14:26:45.009651Z\"\n        }\n    ]\n}"
+							"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 12,\n            \"from_user\": {\n                \"id\": 17,\n                \"email\": \"friend2@test.com\",\n                \"name\": \"friend2\"\n            },\n            \"to_user\": {\n                \"id\": 17,\n                \"email\": \"friend2@test.com\",\n                \"name\": \"friend2\"\n            },\n            \"status\": \"pending\",\n            \"timestamp\": \"2024-07-07T09:27:14.402171Z\"\n        }\n    ]\n}"
 						}
 					]
 				}
@@ -670,7 +672,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Token 7e439b522cb8a38fe825da5a52f21383b4663181"
+								"value": "Token 9d17bfd242f2c175af16fd2e7a433efe8593e93b"
 							}
 						],
 						"url": {
@@ -706,7 +708,7 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Sat, 06 Jul 2024 16:36:43 GMT"
+							"value": "Sun, 07 Jul 2024 09:28:54 GMT"
 						},
 						{
 							"key": "Server",
@@ -730,7 +732,7 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "373"
+							"value": "213"
 						},
 						{
 							"key": "X-Content-Type-Options",
@@ -746,7 +748,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"count\": 6,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 8,\n            \"email\": \"friend1@test.com\",\n            \"name\": \"friend1\"\n        },\n        {\n            \"id\": 9,\n            \"email\": \"friend2@test.com\",\n            \"name\": \"friend2\"\n        },\n        {\n            \"id\": 10,\n            \"email\": \"friend3@test.com\",\n            \"name\": \"friend3\"\n        },\n        {\n            \"id\": 11,\n            \"email\": \"friend4@test.com\",\n            \"name\": \"friend4\"\n        },\n        {\n            \"id\": 12,\n            \"email\": \"friend5@test.com\",\n            \"name\": \"friend5\"\n        },\n        {\n            \"id\": 13,\n            \"email\": \"friend6@test.com\",\n            \"name\": \"friend6\"\n        }\n    ]\n}"
+					"body": "{\n    \"count\": 3,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 16,\n            \"email\": \"friend1@test.com\",\n            \"name\": \"friend1\"\n        },\n        {\n            \"id\": 17,\n            \"email\": \"friend2@test.com\",\n            \"name\": \"friend2\"\n        },\n        {\n            \"id\": 18,\n            \"email\": \"friend3@test.com\",\n            \"name\": \"friend3\"\n        }\n    ]\n}"
 				}
 			]
 		},
@@ -793,7 +795,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Token f4c03ae2a089cb591b5496a1aedc773d82c35861"
+								"value": "Token 9d17bfd242f2c175af16fd2e7a433efe8593e93b"
 							}
 						],
 						"url": {
@@ -819,7 +821,7 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Sat, 06 Jul 2024 14:58:48 GMT"
+							"value": "Sun, 07 Jul 2024 09:29:33 GMT"
 						},
 						{
 							"key": "Server",
@@ -859,7 +861,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 13,\n            \"email\": \"friend6@test.com\",\n            \"name\": \"friend6\"\n        }\n    ]\n}"
+					"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 16,\n            \"email\": \"friend1@test.com\",\n            \"name\": \"friend1\"\n        }\n    ]\n}"
 				}
 			]
 		}
