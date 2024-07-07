@@ -36,7 +36,7 @@ This is a Django-based social network application with functionalities for user 
 
 git clone https://github.com/chanpreet1999/social-network.git
 
-cd social_network
+cd social-network/social_network
 
 pip install -r requirements.txt
 
